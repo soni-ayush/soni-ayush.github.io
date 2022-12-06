@@ -1,2 +1,3 @@
-# test
-this is public test repo
+# Personal Portfolio 
+
+This is my personal portfolio
