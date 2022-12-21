@@ -4,7 +4,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -47,7 +47,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -56,7 +56,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '#navbar .nav-link', function(e) {
+  on('click', '#navbar .nav-link', function (e) {
     let section = select(this.hash)
     if (section) {
       e.preventDefault()
@@ -89,7 +89,7 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
-        setTimeout(function() {
+        setTimeout(function () {
           sections.forEach((item) => {
             item.classList.remove('section-show')
           })
@@ -128,7 +128,7 @@
           }
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
           initial_nav.classList.add('section-show')
         }, 350);
 
@@ -145,7 +145,7 @@
     new Waypoint({
       element: skilsContent,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = select('.progress .progress-bar', true);
         progress.forEach((el) => {
           el.style.width = el.getAttribute('aria-valuenow') + '%'
@@ -196,9 +196,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -250,3 +250,56 @@
   new PureCounter();
 
 })()
+
+
+function postToGoogle(e) {
+  e.preventDefault();
+  const name = "name";
+  const email = "email";
+  const msg = "message";
+  const sub = "subject";
+
+  var field1 = document.getElementById(name).value;
+  var field2 = document.getElementById(email).value;
+  var field3 = document.getElementById(sub).value + "\n\n" + document.getElementById(msg).value;
+  console.log(field1 + " " + field2 + " " + field3);
+
+  if (field1 === "") {
+    alert('Please Fill Your Name');
+    document.getElementById(name).focus();
+    return false;
+  }
+  if (field2 === "") {
+    alert('Please Fill Your Email');
+    document.getElementById(email).focus();
+    return false;
+  }
+  if (field3 === "" || field3.length > 500) {
+    if (field3.length > 500) {
+      alert('It should be less than 120 words');
+    } else {
+      alert('Your message should not be blank.');
+    }
+    document.getElementById(msg).focus();
+    return false;
+  }
+
+  $.ajax({
+    url: "https://docs.google.com/forms/d/e/1FAIpQLScthYpMc3VMRzKjHzQMLZOHf853OdOe8Wex05-q7sXxjUWXXw/formResponse?",
+    data: {
+      "entry.1647857912": field1,
+      "entry.2011591069": field2,
+      "entry.1785497356": field3
+    },
+    type: "POST",
+    dataType: "xml",
+    success: function (d) {
+      alert(d);
+    },
+    error: function (x, y, z) {
+      alert('Your message has been sent successfully.😉');
+      document.getElementById("cForm").reset();
+    }
+  });
+  return false;
+}
