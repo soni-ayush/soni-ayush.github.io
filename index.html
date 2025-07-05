@@ -44,6 +44,12 @@
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       color: #ffffff;
       line-height: 1.6;
+      padding-top: 0;
+      transition: padding-top 0.3s ease;
+    }
+
+    body.section-active {
+      padding-top: 80px;
     }
 
     body::before {
@@ -53,35 +59,295 @@
 
     /* Header improvements */
     #header {
-      background: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+      padding: 2rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    #header h1 {
+    #header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+      opacity: 0.8;
+    }
+
+    /* Header Top Bar - Name and Navigation */
+    .header-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .header-brand h1 {
+      margin: 0;
       font-weight: 700;
-      font-size: 3.5rem;
+      font-size: 2.2rem;
       background: linear-gradient(45deg, var(--primary-color), #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    #header h2 {
-      font-weight: 400;
-      font-size: 1.5rem;
-      color: var(--text-light);
-      margin-top: 1rem;
+    .header-brand h1 a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
     }
 
-    #header h2 span {
+    .header-brand h1 a:hover {
+      text-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+    }
+
+    /* Home Content - Only visible on home page */
+    .home-content {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .home-content h2 {
+      font-weight: 400;
+      font-size: 1.8rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      opacity: 1;
+    }
+
+    .home-content h2 span {
       color: var(--primary-color);
       font-weight: 600;
       border-bottom: 2px solid var(--primary-color);
       padding-bottom: 2px;
+      position: relative;
+    }
+
+    .home-content h2 span::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      animation: underlineExpand 2s ease-out 1s forwards;
+    }
+
+    @keyframes underlineExpand {
+      to { width: 100%; }
+    }
+
+    /* Social Links Enhancement */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      opacity: 1;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      padding: 1rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+      transform: translateY(-5px) scale(1.1);
+      background: rgba(0, 212, 170, 0.1);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 25px rgba(0, 212, 170, 0.3);
+    }
+
+    /* Home Page Profile Section */
+    .home-profile-section {
+      margin: 4rem 0;
+      padding: 2rem 0;
+      opacity: 1;
+    }
+
+    .profile-img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 50px rgba(0, 212, 170, 0.4);
+    }
+
+    .home-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .home-stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 15px 30px rgba(0, 212, 170, 0.2);
+      background: rgba(0, 212, 170, 0.05);
+    }
+
+    .home-stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .home-stat-label {
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Animation keyframes - Simplified */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Responsive adjustments for home profile */
+    @media (max-width: 768px) {
+      #header {
+        padding: 1.5rem 0;
+        min-height: 100vh;
+      }
+
+      .header-top-bar {
+        margin-bottom: 2rem;
+      }
+
+      .header-brand h1 {
+        font-size: 1.8rem;
+      }
+
+      .home-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+      }
+
+      .home-profile-section {
+        margin: 2rem 0;
+        padding: 1rem 0;
+      }
+
+      .home-profile-section .row {
+        flex-direction: column-reverse;
+      }
+
+      .home-profile-section .col-lg-4 {
+        margin-bottom: 2rem;
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .home-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .home-stat-card {
+        padding: 1.5rem;
+      }
+
+      .home-stat-number {
+        font-size: 2.5rem;
+      }
+
+      .social-links {
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-brand h1 {
+        font-size: 1.5rem;
+      }
+
+      .home-content h2 {
+        font-size: 1.2rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .home-stat-number {
+        font-size: 2rem;
+      }
+
+      .home-stat-card {
+        padding: 1rem;
+      }
     }
 
     /* Navigation improvements */
+    .navbar {
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+
     .navbar a {
       font-weight: 500;
       transition: all 0.3s ease;
@@ -94,12 +360,6 @@
 
     /* Revolutionary Professional Navigation */
     #navbar {
-      position: relative;
-    }
-
-    .navbar {
-      padding: 0;
-      margin-top: 40px;
       position: relative;
     }
 
@@ -267,16 +527,20 @@
         display: none;
       }
 
-      #header {
-        padding: 1rem 0;
+      .header-top-bar {
+        align-items: center;
       }
 
-      #header h1 {
-        font-size: 2rem;
+      .header-brand h1 {
+        font-size: 1.5rem;
       }
 
-      #header h2 {
-        font-size: 1.1rem;
+      .home-content h2 {
+        font-size: 1.2rem;
+      }
+
+      #header.header-top .header-brand h1 {
+        font-size: 1.3rem;
       }
     }
 
@@ -363,39 +627,39 @@
       left: 0;
       right: 0;
       height: 80px;
+      min-height: 80px;
       background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(30px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       z-index: 997;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 0;
+      display: block;
+      align-items: center;
     }
 
     #header.header-top .container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       height: 100%;
+      padding: 0 1rem;
     }
 
-    #header.header-top h1 {
+    #header.header-top .header-top-bar {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    #header.header-top .header-brand h1 {
       font-size: 1.6rem;
-      margin: 0;
       background: linear-gradient(45deg, #ffffff, var(--primary-color));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    #header.header-top h2 {
+    #header.header-top .home-content {
       display: none;
-    }
-
-    #header.header-top .social-links {
-      display: none;
-    }
-
-    #header.header-top .navbar {
-      margin-top: 0;
     }
 
     #header.header-top .navbar ul {
@@ -432,6 +696,10 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      body.section-active {
+        padding-top: 70px;
+      }
+
       section {
         top: 120px;
       }
@@ -745,12 +1013,40 @@
     .contact-item:hover {
       transform: translateY(-5px);
       border-color: var(--primary-color);
+      box-shadow: 0 15px 30px rgba(0, 212, 170, 0.2);
     }
 
     .contact-item i {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      background: rgba(0, 212, 170, 0.1);
+      border-radius: 50%;
+      border: 2px solid rgba(0, 212, 170, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover i {
+      background: rgba(0, 212, 170, 0.2);
+      border-color: var(--primary-color);
+      transform: scale(1.1);
+    }
+
+    .contact-item h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
       margin-bottom: 1rem;
+    }
+
+    .contact-item p {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 0;
     }
 
     /* Form improvements */
@@ -764,31 +1060,85 @@
 
     .php-email-form input,
     .php-email-form textarea {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: #ffffff;
       padding: 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .php-email-form input::placeholder,
+    .php-email-form textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .php-email-form input:focus,
     .php-email-form textarea:focus {
       border-color: var(--primary-color);
       box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
     }
 
     .php-email-form button[type="submit"] {
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      background: linear-gradient(45deg, var(--primary-color), #35e888);
       border: none;
       border-radius: 8px;
       padding: 1rem 2rem;
       font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+      cursor: pointer;
       transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 150px;
     }
 
     .php-email-form button[type="submit"]:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+      background: linear-gradient(45deg, #35e888, var(--primary-color));
+    }
+
+    .php-email-form button[type="submit"]:active {
+      transform: translateY(0);
+    }
+
+    /* Form status messages */
+    .php-email-form .loading {
+      display: none;
+      background: rgba(0, 212, 170, 0.1);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .php-email-form .error-message {
+      display: none;
+      background: rgba(255, 107, 107, 0.1);
+      border: 1px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    .php-email-form .sent-message {
+      display: none;
+      background: rgba(0, 212, 170, 0.1);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--primary-color);
+      font-weight: 500;
     }
 
     /* Certificate section */
@@ -858,6 +1208,16 @@
     #portfolio {
       display: none;
     }
+
+    /* Hide profile section when not on home page */
+    #header.header-top .home-profile-section {
+      display: none;
+    }
+
+    /* Hide social links when not on home page */
+    #header.header-top .social-links {
+      display: none;
+    }
   </style>
 </head>
 
@@ -866,30 +1226,69 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
-      <h1><a href="index.html">Ayush Soni</a></h1>
-      <h2>Lead <span>DevOps Engineer</span> & Cloud Infrastructure Specialist</h2>
+      <!-- Top Bar with Name and Navigation -->
+      <div class="header-top-bar">
+        <div class="header-brand">
+          <h1><a href="index.html">Ayush Soni</a></h1>
+        </div>
+        
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link active" href="#header">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#resume">Experience</a></li>
+            <li><a class="nav-link" href="#certification">Certifications</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Experience</a></li>
-          <li><a class="nav-link" href="#certification">Certifications</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+      <!-- Home Page Content - Only visible on home -->
+      <div class="home-content">
+        <h2>Lead <span>DevOps Engineer</span> & Cloud Infrastructure Specialist</h2>
 
-      <div class="social-links">
-        <a href="https://twitter.com/ayushsoni_7" target="_blank" class="twitter" aria-label="Twitter">
-          <i class="bi bi-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" target="_blank" class="linkedin" aria-label="LinkedIn">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="https://github.com/soni-ayush" target="_blank" class="github" aria-label="GitHub">
-          <i class="bi bi-github"></i>
-        </a>
+        <!-- Profile Picture and Stats - Only visible on home page -->
+        <div class="home-profile-section">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <div class="home-stats-grid">
+                <div class="home-stat-card">
+                  <span class="home-stat-number">6+</span>
+                  <span class="home-stat-label">Years Experience</span>
+                </div>
+                <div class="home-stat-card">
+                  <span class="home-stat-number">200+</span>
+                  <span class="home-stat-label">Kubernetes Clusters</span>
+                </div>
+                <div class="home-stat-card">
+                  <span class="home-stat-number">$485K</span>
+                  <span class="home-stat-label">Cost Savings Achieved</span>
+                </div>
+                <div class="home-stat-card">
+                  <span class="home-stat-number">50+</span>
+                  <span class="home-stat-label">Clients Served</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 text-center">
+              <img src="assets/img/me.jpg" class="profile-img" alt="Ayush Soni">
+              
+              <!-- Social Links moved below profile picture -->
+              <div class="social-links">
+                <a href="https://twitter.com/ayushsoni_7" target="_blank" class="twitter" aria-label="Twitter">
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" target="_blank" class="linkedin" aria-label="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://github.com/soni-ayush" target="_blank" class="github" aria-label="GitHub">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -899,26 +1298,6 @@
     <div class="container">
       <div class="section-title">
         <h2>About Me</h2>
-      </div>
-
-      <!-- Stats Section -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span class="stat-number">6+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">200+</span>
-          <span class="stat-label">Kubernetes Clusters</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">$485K</span>
-          <span class="stat-label">Cost Savings Achieved</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">50+</span>
-          <span class="stat-label">Clients Served</span>
-        </div>
       </div>
 
       <!-- About Content -->
@@ -1077,7 +1456,7 @@
         <h2>Testimonials</h2>
       </div>
 
-      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="testimonials-slider swiper mt-4" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="testimonial-item">
@@ -1371,16 +1750,6 @@
 
       <div class="contact-grid">
         <div class="contact-item">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-          <div class="social-links mt-3">
-            <a href="https://twitter.com/ayushsoni_7" class="twitter" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://github.com/soni-ayush" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
-          </div>
-        </div>
-
-        <div class="contact-item">
             <i class="bx bx-envelope"></i>
           <h3>Email</h3>
           <p class="mt-2">ayushsoni47.as@gmail.com</p>
@@ -1448,6 +1817,7 @@
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const header = document.getElementById('header');
       const sections = document.querySelectorAll('section');
+      const body = document.body;
 
       // Enhanced smooth scrolling for navigation links
       navLinks.forEach(link => {
@@ -1473,10 +1843,12 @@
             if (targetId === '#header') {
               // Show home section
               header.classList.remove('header-top');
+              body.classList.remove('section-active');
               sections.forEach(section => section.classList.remove('section-show'));
               window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
               // Show specific section
+              body.classList.add('section-active');
               if (!header.classList.contains('header-top')) {
                 header.classList.add('header-top');
                 setTimeout(() => {
@@ -1516,6 +1888,7 @@
             
             // Show section
             if (hash !== '#header') {
+              body.classList.add('section-active');
               header.classList.add('header-top');
               setTimeout(() => {
                 sections.forEach(section => section.classList.remove('section-show'));
