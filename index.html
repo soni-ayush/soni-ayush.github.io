@@ -5,18 +5,16 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Ayush Soni | Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Ayush Soni | DevOps Engineer</title>
+  <meta content="Lead DevOps Engineer with 6+ years of experience in cloud infrastructure, Kubernetes, and CI/CD automation" name="description">
+  <meta content="DevOps, AWS, Kubernetes, Terraform, Site Reliability Engineering, Cloud Infrastructure" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/programmer.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,12 +27,457 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Personal - v4.9.1
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* Modern improvements */
+    :root {
+      --primary-color: #00d4aa;
+      --secondary-color: #1a1a1a;
+      --accent-color: #ff6b6b;
+      --text-light: rgba(255, 255, 255, 0.8);
+      --bg-dark: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    body::before {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      opacity: 0.95;
+    }
+
+    /* Header improvements */
+    #header {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    #header h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, var(--primary-color), #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #header h2 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-top: 1rem;
+    }
+
+    #header h2 span {
+      color: var(--primary-color);
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 2px;
+    }
+
+    /* Navigation improvements */
+    .navbar a {
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Section improvements */
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .section-title h2::after {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      height: 3px;
+      width: 60px;
+    }
+
+    /* Card improvements */
+    .card-modern {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .card-modern:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 170, 0.1);
+      border-color: var(--primary-color);
+    }
+
+    /* Skills section improvements */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .skill-category h3 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    .skill-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: rgba(0, 212, 170, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .skill-item img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Achievement badges */
+    .achievement-badge {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: #ffffff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Stats section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+
+    /* Testimonials improvements */
+    .testimonial-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 30px rgba(0, 212, 170, 0.1);
+    }
+
+    .testimonial-item p {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .quote-icon-left,
+    .quote-icon-right {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .testimonial-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+      flex-shrink: 0;
+    }
+
+    .testimonial-item h3 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-item h4 {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .testimonial-author-info h3,
+    .testimonial-author-info h4 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Swiper customizations */
+    .testimonials-slider {
+      padding-bottom: 3rem;
+    }
+
+    .testimonials-slider .swiper-pagination {
+      position: static;
+      margin-top: 2rem;
+    }
+
+    .testimonials-slider .swiper-pagination-bullet {
+      background: var(--border-color);
+      opacity: 1;
+      width: 12px;
+      height: 12px;
+      margin: 0 6px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonials-slider .swiper-pagination-bullet-active {
+      background: var(--primary-color);
+      transform: scale(1.2);
+    }
+
+    /* Responsive testimonials */
+    @media (max-width: 768px) {
+      .testimonial-item {
+        padding: 1.5rem;
+      }
+      
+      .testimonial-img {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .testimonial-author {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      
+      .testimonial-author-info h3,
+      .testimonial-author-info h4 {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+    }
+
+    /* Contact section improvements */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+    }
+
+    .contact-item i {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Form improvements */
+    .php-email-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .php-email-form input,
+    .php-email-form textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #ffffff;
+      padding: 1rem;
+    }
+
+    .php-email-form input:focus,
+    .php-email-form textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+    }
+
+    .php-email-form button[type="submit"] {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      border: none;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .php-email-form button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+    }
+
+    /* Certificate section */
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .certificate-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .certificate-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+    }
+
+    .certificate-item img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Responsive improvements */
+    @media (max-width: 768px) {
+      #header h1 {
+        font-size: 2.5rem;
+      }
+
+      .skills-grid,
+      .stats-grid,
+      .contact-grid,
+      .certificate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Animation improvements */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Hide portfolio section for cleaner look */
+    #portfolio {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -42,841 +485,547 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
-
       <h1><a href="index.html">Ayush Soni</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a passionate <span>DevOps Engineer</span></h2>
+      <h2>Lead <span>DevOps Engineer</span> & Cloud Infrastructure Specialist</h2>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#certification">Certification</a></li>
-          <!-- <li><a class="nav-link" href="#portfolio">Projects</a></li> -->
+          <li><a class="nav-link" href="#resume">Experience</a></li>
+          <li><a class="nav-link" href="#certification">Certifications</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      <!-- .navbar -->
 
       <div class="social-links">
-        <a href="https://twitter.com/ayushsoni_7" target="_blank" class="twitter">
+        <a href="https://twitter.com/ayushsoni_7" target="_blank" class="twitter" aria-label="Twitter">
           <i class="bi bi-twitter"></i>
         </a>
-        <!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
-        <!-- <a href="#" class="instagram"><i class="bi bi-instagram"></i></a> -->
-        <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" target="_blank" class="linkedin">
+        <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" target="_blank" class="linkedin" aria-label="LinkedIn">
           <i class="bi bi-linkedin"></i>
         </a>
+        <a href="https://github.com/soni-ayush" target="_blank" class="github" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
       </div>
-
     </div>
-  </header><!-- End Header -->
+  </header>
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
+    <div class="container">
       <div class="section-title">
-        <h2>About</h2>
-        <p>Learn more about me</p>
+        <h2>About Me</h2>
+        <p>Transforming infrastructure through code and automation</p>
       </div>
 
+      <!-- Stats Section -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Kubernetes Clusters</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">$485K</span>
+          <span class="stat-label">Cost Savings Achieved</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Clients Served</span>
+        </div>
+      </div>
+
+      <!-- About Content -->
       <div class="row">
         <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid" alt="">
+          <img src="assets/img/me.jpg" class="img-fluid rounded-4" alt="Ayush Soni">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>DevOps &amp; Backend Engineer</h3>
-          <!-- <p class="fst-italic"> -->
-          <p>
+          <div class="card-modern">
+            <h3 class="mb-3">DevOps & Site Reliability Engineer</h3>
+            <p class="mb-4">
             Lead DevOps Engineer with over 6 years of experience in product and consulting environments, specializing in DevOps, 
             Site Reliability Engineering (SRE), and Cloud-Native Infrastructure. Proven track record of designing scalable, secure, 
-            and cost-efficient systems using AWS, Kubernetes, Terraform, and CI/CD pipelines. Adept at building GitOps workflows, 
-            automating deployments, and managing large-scale, multi-tenant architectures. A Certified Kubernetes Application Developer 
-            known for delivering zero-downtime releases, optimizing incident response, and leading high-impact cross-functional initiatives. 
-            Passionate about aligning technology with business outcomes and continuously evolving with modern DevOps practices.
-          </p>
+              and cost-efficient systems using AWS, Kubernetes, Terraform, and CI/CD pipelines.
+            </p>
+            <p class="mb-4">
+              Adept at building GitOps workflows, automating deployments, and managing large-scale, multi-tenant architectures. 
+              A Certified Kubernetes Application Developer known for delivering zero-downtime releases, optimizing incident response, 
+              and leading high-impact cross-functional initiatives.
+            </p>
+            
           <div class="row">
             <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 99075-68686</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Residence:</strong> <span>India</span></li>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i><strong>Phone:</strong> +91 99075-68686</li>
+                  <li class="mb-2"><i class="bi bi-geo-alt-fill text-primary me-2"></i><strong>Location:</strong> India</li>
               </ul>
             </div>
             <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B. Tech</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ayushsoni47.as@gmail.com</span>
-                </li>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><i class="bi bi-mortarboard-fill text-primary me-2"></i><strong>Degree:</strong> B.Tech (IIT Indore)</li>
+                  <li class="mb-2"><i class="bi bi-envelope-fill text-primary me-2"></i><strong>Email:</strong> ayushsoni47.as@gmail.com</li>
               </ul>
             </div>
           </div>
-          <!-- <p>
-            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut.
-            Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-          </p> -->
+          </div>
         </div>
       </div>
-
-    </div><!-- End About Me -->
 
     <!-- Skills Section -->
-    <div class="interests container">
-
+      <div class="mt-5">
       <div class="section-title">
-        <h2>Skills</h2>
+          <h2>Technical Expertise</h2>
+          <p>Technologies and tools I work with</p>
       </div>
-      <div class="row section-title">
-        <h3>Development</h3>
+        
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="bi bi-code-slash me-2"></i>Development</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="./assets/img/skills/python.png" alt="Python">
+                <h4>Python</h4>
       </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <img src="./assets/img/skills/python.png" class="icon-img" alt="">
-            <h3>Python</h3>
+              <div class="skill-item">
+                <img src="./assets/img/skills/flask.png" alt="Flask">
+                <h4>Flask</h4>
+          </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/java-script.png" alt="JavaScript">
+                <h4>JavaScript</h4>
+        </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/go.png" alt="Go">
+                <h4>Go</h4>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <!-- <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i> -->
-            <img src="./assets/img/skills/flask.png" class="icon-img" alt="">
-            <h3>Flask</h3>
           </div>
+
+          <div class="skill-category">
+            <h3><i class="bi bi-cloud me-2"></i>DevOps & Cloud</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="./assets/img/skills/kubernetes.svg" alt="Kubernetes">
+                <h4>Kubernetes</h4>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <!-- <i class="ri-calendar-todo-line" style="color: #e80368;"></i> -->
-            <img src="./assets/img/skills/java-script.png" class="icon-img" alt="">
-            <h3>JavaScript</h3>
+              <div class="skill-item">
+                <img src="./assets/img/skills/aws.png" alt="AWS">
+                <h4>AWS</h4>
           </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/terraform.png" alt="Terraform">
+                <h4>Terraform</h4>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <img src="./assets/img/skills/angular.png" class="icon-img" alt="">
-            <!-- <i class="ri-paint-brush-line" style="color: #e361ff;"></i> -->
-            <h3>Angular</h3>
-          </div>
-        </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/docker.png" alt="Docker">
+                <h4>Docker</h4>
       </div>
-      <div class="row" style="height: 20px;"></div>
-      <div class="row section-title">
-        <h3>DevOps</h3>
       </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <!-- <i class="ri-store-line" style="color: #ffbb2c;"></i> -->
-            <img src="./assets/img/skills/kubernetes.svg" class="icon-img" alt="">
-            <h3>Kubernetes</h3>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="bi bi-gear me-2"></i>CI/CD & Automation</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <img src="./assets/img/skills/jenkins.png" alt="Jenkins">
+                <h4>Jenkins</h4>
+        </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/argo.png" alt="ArgoCD">
+                <h4>ArgoCD</h4>
+          </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/helm.png" alt="Helm">
+                <h4>Helm</h4>
+        </div>
+              <div class="skill-item">
+                <img src="./assets/img/skills/ansible.png" alt="Ansible">
+                <h4>Ansible</h4>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <!-- <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i> -->
-            <img src="./assets/img/skills/aws.png" class="icon-img" alt="">
-            <h3>Cloud(AWS)</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <img src="./assets/img/skills/jenkins.png" class="icon-img" alt="">
-            <!-- <i class="ri-calendar-todo-line" style="color: #e80368;"></i> -->
-            <h3>CICD(Jenkins, Codefresh)</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <!-- <i class="ri-paint-brush-line" style="color: #e361ff;"></i> -->
-            <img src="./assets/img/skills/terraform.png" class="icon-img" alt="">
-            <h3>Terraform</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <!-- <i class="ri-database-2-line" style="color: #47aeff;"></i> -->
-            <img src="./assets/img/skills/ansible.png" class="icon-img" alt="">
-            <h3>Ansbile</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <!-- <i class="ri-gradienter-line" style="color: #ffa76e;"></i> -->
-            <img src="./assets/img/skills/argo.png" class="icon-img" alt="">
-            <h3>GitOps(ArgoCD)</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <!-- <i class="ri-file-list-3-line" style="color: #11dbcf;"></i> -->
-            <img src="./assets/img/skills/docker.png" class="icon-img" alt="">
-            <h3>Docker</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <!-- <i class="ri-price-tag-2-line" style="color: #4233ff;"></i> -->
-            <img src="./assets/img/skills/helm.png" class="icon-img" alt="">
-            <h3>Helm</h3>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- End Skills -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
+      <!-- Interests Section -->
+      <div class="mt-5">
       <div class="section-title">
-        <h2>Interests</h2>
+          <h2>Areas of Interest</h2>
+          <p>What drives my passion for technology</p>
       </div>
 
       <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-            <h3>DevOps</h3>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card-modern text-center">
+              <i class="ri-settings-3-line mb-3" style="font-size: 2rem; color: var(--primary-color);"></i>
+              <h4>DevOps Engineering</h4>
+              <p class="text-muted">Automating and optimizing development workflows</p>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-            <h3>SecOps</h3>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card-modern text-center">
+              <i class="ri-shield-check-line mb-3" style="font-size: 2rem; color: var(--primary-color);"></i>
+              <h4>Site Reliability</h4>
+              <p class="text-muted">Ensuring system reliability and performance</p>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-database-2-line" style="color: #47aeff;"></i>
-            <h3>Backend Development</h3>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card-modern text-center">
+              <i class="ri-cloud-line mb-3" style="font-size: 2rem; color: var(--primary-color);"></i>
+              <h4>Cloud Architecture</h4>
+              <p class="text-muted">Designing scalable cloud-native solutions</p>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-            <h3>Frontend Development</h3>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card-modern text-center">
+              <i class="ri-lock-line mb-3" style="font-size: 2rem; color: var(--primary-color);"></i>
+              <h4>Security & Compliance</h4>
+              <p class="text-muted">Implementing secure infrastructure practices</p>
+            </div>
           </div>
         </div>
       </div>
 
-    </div><!-- End Interests -->
-
-
-    <!-- ======= Testimonials ======= -->
-    <div class="testimonials container">
-
+      <!-- Testimonials Section -->
+      <div class="mt-5">
       <div class="section-title">
-        <h2>Testimonials</h2>
+          <h2>What Colleagues Say</h2>
+          <p>Testimonials from industry professionals</p>
       </div>
 
       <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
-
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <p>
+                <p class="mb-4">
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 I knew Ayush after he joined, right after IIT Indore campus, in the Data Science & Engineering product
                 group that I was leading from India Offices. I saw him grow immensely in those 2 yrs, always learning
-                and contributing to anything that's tech, and code at a professional level. As a junior software
-                engineer, fresh from campus. Seeing his curiosity at play, hard work, and capability to build things
-                from scratch, he was up for grabs from anything from the Backend, Full-stack, Cloud, and DevOps, and at
-                the same time motivating others. Awesomely skilled, talented, a python geek, a great team player, and a
+                  and contributing to anything that's tech, and code at a professional level. Awesomely skilled, talented, a python geek, a great team player, and a
                 humble as he is, something rare one can find.
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <img src="assets/img/testimonials/shivam_anand.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                  <img src="assets/img/testimonials/shivam_anand.jpeg" class="testimonial-img rounded-circle" alt="Shivam Anand">
+                  <div class="testimonial-author-info">
               <h3>Shivam Anand</h3>
               <h4>Associate VP of Data Science at Deloitte Digital</h4>
             </div>
-          </div><!-- End testimonial item -->
+                </div>
+              </div>
+            </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <p>
+                <p class="mb-4">
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Working with Ayush I had a pleasure of driving some significant architecture changes, it’s execution and
+                  Working with Ayush I had a pleasure of driving some significant architecture changes, it's execution and
                 meticulous planning of Infrastructure as a code which was instrumental in driving infrastructure code
-                efficiency, security, unit testing. Ayush was given responsibility to lead a team and deliver within
-                tight timelines; he took up the challenge and delivered high quality well tested changes. He is the one
-                whom organization can rely both technology and accountability perspective. His attitude towards work and
-                colleagues, collaborative nature and willingness to help is remarkable. He will be an asset to any
+                  efficiency, security, unit testing. He is the one
+                  whom organization can rely both technology and accountability perspective. He will be an asset to any
                 organization.
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <img src="assets/img/testimonials/sandip_shah.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                  <img src="assets/img/testimonials/sandip_shah.jpeg" class="testimonial-img rounded-circle" alt="Sandip Shah">
+                  <div class="testimonial-author-info">
               <h3>Sandip Shah</h3>
               <h4>Senior Director Cloud Engineering</h4>
             </div>
-          </div><!-- End testimonial item -->
+                </div>
+              </div>
+            </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <p>
+                <p class="mb-4">
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 In his time at Deloitte, Ayush quickly became a trusted technical resource on a CI/CD team who was able
                 to understand problems, develop and test solutions, and demo to dev teams. He has a talent for deeply
                 learning a tool and creating a process to implement it, then continuing to find ways to make
-                improvements. Few people in my career have been as effective as Ayush, as well as being an enjoyable
-                person to work with.
+                  improvements. Few people in my career have been as effective as Ayush.
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <img src="assets/img/testimonials/paul_fleetwood.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                  <img src="assets/img/testimonials/paul_fleetwood.jpeg" class="testimonial-img rounded-circle" alt="Paul Fleetwood">
+                  <div class="testimonial-author-info">
               <h3>Paul Fleetwood</h3>
               <h4>Product Architect 2, Deloitte Digital</h4>
             </div>
-          </div><!-- End testimonial item -->
+                </div>
+              </div>
+            </div>
 
           <div class="swiper-slide">
             <div class="testimonial-item">
-              <p>
+                <p class="mb-4">
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 I've worked with Ayush for close to 2 years, In those two years I've seen him not only excel at his job
                 but also learn other tasks that extend well beyond the scope of his role. He has been a quick learner
                 and never says no to picking up challenging tasks.
-                He has been a great team player with rare mix of productivity and ambition setting a great example for
-                the rest of the team. I can’t wait to see what he does with the next step in his career trajectory.
+                  He has been a great team player with rare mix of productivity and ambition.
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <img src="assets/img/testimonials/sandip_jujare.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                  <img src="assets/img/testimonials/sandip_jujare.jpeg" class="testimonial-img rounded-circle" alt="Sandeep Jujare">
+                  <div class="testimonial-author-info">
               <h3>Sandeep Jujare</h3>
               <h4>Senior Consultant, Deloitte Digital</h4>
             </div>
-          </div><!-- End testimonial item -->
+                </div>
+              </div>
+            </div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
-
-      <div class="owl-carousel testimonials-carousel">
-
-      </div>
-
-    </div><!-- End Testimonials  -->
-  </section><!-- End About Section -->
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
-        <!-- <p>Check My Resume</p> -->
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Sumary</h3>
-          <div class="resume-item pb-0">
-            <h4>What I Do</h4>
-            <p>
-              <em>
-                I am an experienced DevOps Engineer with 5+ years of expertise in frontend, backend, full-stack
-                development, and DevOps practices. As a Certified Kubernetes Application Developer, I bring in-depth
-                knowledge and hands-on experience in managing containerized environments. Throughout my career, I have
-                successfully contributed to the implementation of innovative solutions, automation of processes, and
-                efficient deployment of applications. From architecting One Click pipelines to implementing GitOps
-                architectures, I have consistently delivered high-quality results. With a strong commitment to
-                continuous improvement and a track record of successful projects, I am confident in my ability to drive
-                efficiency and streamline operations.
-              </em>
-            </p>
-            <p>
-            <ul>
-              <li>+91 99075-68686</li>
-              <li>ayushsoni47.as@gmail.com</li>
-            </ul>
-            </p>
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Bachelor of Technology</h4>
-            <h5>2015 - 2019</h5>
-            <p><em>IIT Indore</em></p>
-            <p>
-              I have a specialisation in <bold>Electrical Engineering</bold>. I graduated with 8.6 GPA. I have a minor
-              degree <bold>in Humanities and Social Sciences</bold>
-            </p>
-          </div>
-          <h3 class="resume-title">Achievements</h3>
-          <div class="resume-item">
-            <h4>Leading by Example Award</h4>
-            <h5>May 3, 2023</h5>
-            <p><em>Innovaccer</em></p>
-            <p>
-              Led the PHC ArgoCD centralisation rollout, improving refresh speed by 98% and sync speed by 86%, 
-              while reducing blast radius through app localisation and GitOps best practices. Delivered end-to-end execution 
-              from PoC to production and streamlining deployments.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Leading by Example Award</h4>
-            <h5>May 3, 2023</h5>
-            <p><em>Innovaccer</em></p>
-            <p>
-              I have been awarded for for designing and leading the implementation of a One-Click pipeline. 
-              Achieved 60% effort reduction, 2.5x faster infrastructure creation, 
-              100% reliability, and automated multi-account management.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Outstanding Award</h4>
-            <h5>April 29, 2021</h5>
-            <p><em>Deloitte USI</em></p>
-            <p>
-              I have been awarded for implementing the architecture to deploy all the legacy application
-              the GitOps way.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Applause Award</h4>
-            <h5>Oct 29, 2020</h5>
-            <p><em>Deloitte USI</em></p>
-            <p>
-              I have been awarded for owning the task proactively and contributing in building solutions to support
-              legacy windows application
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Spot Award</h4>
-            <h5>March 31, 2020</h5>
-            <p><em>Deloitte USI</em></p>
-            <p>
-              I have been awarded for developing a configurable and reusable python utility framework with test data
-              point for the tableau dashboard deployed at client side. For this application I was nominated by
-              Senior Manager for Global Innovation Award at Deloitte.
-            </p>
-          </div>
-          <h3 class="resume-title">Position of Responsibility</h3>
-          <div class="resume-item">
-            <h4>General Secretary, Cultural Affairs</h4>
-            <h5>2017 - 2018</h5>
-            <p><em>IIT Indore</em></p>
-            <p>
-              I played a role of Cultural Secretary where I was responsible for organizing and managing cultural events.
-              I represented IIT Indore in inter IIT Competitions where I was responsible for organizing, logistics and
-              finances for our institute.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item">
-            <h4>SITE RELIABILITY ENGINEER 2</h4>
-            <h5>Feb, 22 - Present</h5>
-            <p><em>Innovaccer</em></p>
-            <p>
-            <ul>
-              <li>
-                Implemented a Multi-Tenant architecture, consolidating 50+ clients onto shared AWS resources—enforced tenant isolation via RBAC 
-                and network policies, simplified operations, and saved $485K in infrastructure costs. 
-              </li>
-              <li>
-                Designed a secure, multi-tenant TCP gateway using APISIX and SNI-based routing, 
-                enabling encrypted access over a single port and saving ~$21K/year in infrastructure costs.
-              </li>
-              <li>
-                Deployed Cilium CNI  across 200+ Kubernetes clusters—replaced kube-proxy for faster service discovery, 
-                enabled ClusterMesh for multi-cluster networking, enforced L7 policies, and implemented node-to-node encryption—boosting 
-                network performance, security, and observability.
-              </li>
-              <li>
-                Developed a custom Kubernetes operator using Python to automate user management for databases, resulting
-                in significant improved operational efficiency. Designed and implemented the operator's functionality,
-                including user provisioning, access control, and permissions management within a Kubernetes cluster.
-              </li>
-              <li>
-                Architected and Implemented an One Click pipeline using Terragrunt, Terraform, Jenkins, ArgoCD. The
-                pipeline is capable of creating infrastructure required for the product in AWS for a tenant(customer)
-                and deploying all the micro-services in Amazon Elastic Kubernetes Service with the help Argo CD GitOps
-                Operator. This automation
-                resulted in:
-                <ul style="padding-top: 5px">
-                  <li style="padding-bottom: 0; font-size: 15px">60% effort reduction</li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Everything is automated so platform get delivered to customer with
-                    highest quality in no time
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">Multi-Account (client) managment</li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Pipeline has provision for update infra/deployment multiple customer in one run. Make it more
-                    effective
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Architected the complex micro-services deployment architecture in waves for the company. Such that
-                micro-services are deployed in a synchronous manner, dependent application deployed first.
-                <ul style="padding-top: 5px">
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Enable team to perform predeployment and postdeployment
-                    tests
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Kept the code DRY. No need to check test if the dependent micro-services are up or not
-                  </li>
-              </li>
-              <li>
-                Architected and Implemented a two-repository Helm chart centralization strategy, resolving issues 
-                like inconsistent deployments, product segregation, and performance bottlenecks.
-                This migration resulted in
-                <ul style="padding-top: 5px">
-                  <li style="padding-bottom: 0; font-size: 15px">98% improvement in refresh times</li>
-                  <li style="padding-bottom: 0; font-size: 15px">86% improvement in sync speed</li>
-                  <li style="padding-bottom: 0; font-size: 15px">Enhanced chart promotiont</li>
-                </ul>
-              </li>
-            </ul>
-            </li>
-            </ul>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Member of Technical Staff</h4>
-            <h5>Sep, 21 - Feb 22</h5>
-            <p><em>VMware Software India Pvt. Ltd.</em></p>
-            <p>
-            <ul>
-              <li>
-                Implemented IaC to automate integration test of SaaS platform
-                to test on different Cloud provided Kubernetes services using Crossplane.
-              </li>
-            </ul>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Product Development Associate</h4>
-            <h5>Sep, 19 - Sep, 22</h5>
-            <p><em>Human Experience (HUX), Deloitte USI</em></p>
-            <p>
-            <ul>
-              <li>
-                GitOps: Implemented an impactful architecture to deploy applications on
-                Kubernetes using git operations. Deployment became as easy as git commit. This
-                made a huge impact in infrastructure as Git became the only source of the truth.
-                Kubernetes resources can self-heal itself. Implemented GitOps architecture, enabling self-healing
-                capabilities of Kubernetes resources and ensuring application
-                integrity by managing all changes through Git. For this
-                work I have been awarded with an <span style="color: #18d26e;">Outstanding Award</span>
-                (highest award in Deloitte) for my contribution to implement GitOps.
-              </li>
-              <li>
-                DevOps: Made CI/CD work automated and seamless for the team. Made the whole journey of Microservices
-                seamless from the git to the server.
-                <ul style="padding-top: 5px">
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Containerized Python, Node.js and dotnet based Microservices using docker
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Deployed and orchestrated Microservices on Kubernetes cluster with Amazon Elastic Kubernetes
-                    Service.
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Kubernetes is used to orchestrate the deployment, scaling and management of Docker containers.
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Configured and maintained the private docker image repository using Ansible for orchestration.
-                  </li>
-                </ul>
-              </li>
-              <li>Programming: Developed Data Pipelines to generate meaningful insights from the raw data. Thus, enables
-                insight generation for users on-site behavior. Tech Stack:
-                <ul style="padding-top: 5px">
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    PySpark for processing big data
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Luigi framework for data pipeline orchestration
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    SQLAlchemy as ORM
-                  </li>
-                  <li style="padding-bottom: 0; font-size: 15px">
-                    Flask as web server gateway interface.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            </li>
-            </ul>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section><!-- End Resume Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="certification" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Certificates</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon-img">
-              <a href="https://www.credly.com/badges/82402b14-36df-4b74-8b0c-85dd83b19729" target="_blank">
-                <img src="assets/img/certificate/ckad.png" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon-img">
-              <a href="" target="_blank">
-                <img src="assets/img/certificate/argocd_fundamental.png" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon-img">
-              <a href="" target="_blank">
-                <img src="assets/img/certificate/argocd_scale.png" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- End Services Section -->
-
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
     <div class="container">
-
       <div class="section-title">
-        <h2>Projects</h2>
-        <p>My Works</p>
+        <h2>Professional Journey</h2>
+        <p>Experience, achievements, and education</p>
       </div>
 
       <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
+        <div class="col-lg-6">
+          <div class="card-modern">
+            <h3 class="resume-title">Professional Summary</h3>
+          <div class="resume-item pb-0">
+            <h4>What I Do</h4>
+              <p class="mb-3">
+                I am an experienced DevOps Engineer with 6+ years of expertise in cloud infrastructure, containerization, 
+                and automation. As a Certified Kubernetes Application Developer, I bring deep knowledge in managing 
+                containerized environments at scale.
+              </p>
+              <p class="mb-3">
+                My expertise spans from architecting One-Click deployment pipelines to implementing GitOps architectures 
+                that have saved organizations hundreds of thousands in infrastructure costs while improving deployment 
+                reliability and speed.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-telephone-fill text-primary me-2"></i>+91 99075-68686</li>
+                <li><i class="bi bi-envelope-fill text-primary me-2"></i>ayushsoni47.as@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-modern mt-4">
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+            <h4>Bachelor of Technology</h4>
+              <h5 class="text-primary">2015 - 2019</h5>
+              <p class="mb-2"><em>Indian Institute of Technology (IIT) Indore</em></p>
+              <p class="mb-0">
+                Specialization in <strong>Electrical Engineering</strong> with 8.6 GPA. 
+                Minor degree in <strong>Humanities and Social Sciences</strong>.
+            </p>
+          </div>
+          </div>
+
+          <div class="card-modern mt-4">
+            <h3 class="resume-title">Key Achievements</h3>
+            
+          <div class="resume-item">
+              <div class="achievement-badge">Leading by Example Award</div>
+              <h4>ArgoCD Centralization Initiative</h4>
+              <h5 class="text-primary">May 2023 - Innovaccer</h5>
+              <p>
+                Led the PHC ArgoCD centralization rollout, achieving 98% improvement in refresh speed and 86% improvement in sync speed, 
+                while reducing blast radius through app localization and GitOps best practices.
+            </p>
+          </div>
+
+          <div class="resume-item">
+              <div class="achievement-badge">Leading by Example Award</div>
+              <h4>One-Click Pipeline Architecture</h4>
+              <h5 class="text-primary">May 2023 - Innovaccer</h5>
+              <p>
+                Designed and implemented a One-Click pipeline achieving 60% effort reduction, 
+                2.5x faster infrastructure creation, and 100% reliability with automated multi-account management.
+            </p>
+          </div>
+
+          <div class="resume-item">
+              <div class="achievement-badge">Outstanding Award</div>
+              <h4>GitOps Architecture Implementation</h4>
+              <h5 class="text-primary">April 2021 - Deloitte USI</h5>
+              <p>
+                Implemented architecture to deploy all legacy applications using GitOps methodology, 
+                making Git the single source of truth for deployments.
+            </p>
+          </div>
+
+          <div class="resume-item">
+              <div class="achievement-badge">Global Innovation Nominee</div>
+              <h4>Python Utility Framework</h4>
+              <h5 class="text-primary">March 2020 - Deloitte USI</h5>
+              <p>
+                Developed a configurable and reusable Python utility framework for Tableau dashboards, 
+                nominated for Global Innovation Award at Deloitte.
+            </p>
+          </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card-modern">
+          <h3 class="resume-title">Professional Experience</h3>
+            
+          <div class="resume-item">
+              <h4>Site Reliability Engineer 2</h4>
+              <h5 class="text-primary">February 2022 - Present</h5>
+              <p class="mb-3"><em>Innovaccer</em></p>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <strong>Multi-Tenant Architecture:</strong> Implemented architecture consolidating 50+ clients onto shared AWS resources, 
+                  enforcing tenant isolation via RBAC and network policies, saving $485K in infrastructure costs.
+              </li>
+                <li class="mb-2">
+                  <strong>Secure TCP Gateway:</strong> Designed multi-tenant TCP gateway using APISIX and SNI-based routing, 
+                  enabling encrypted access over single port, saving ~$21K/year.
+              </li>
+                <li class="mb-2">
+                  <strong>Cilium CNI Deployment:</strong> Deployed across 200+ Kubernetes clusters, replaced kube-proxy for faster service discovery, 
+                  enabled ClusterMesh for multi-cluster networking with L7 policies and node-to-node encryption.
+              </li>
+                <li class="mb-2">
+                  <strong>Kubernetes Operator:</strong> Developed custom Python operator for database user management automation, 
+                  significantly improving operational efficiency.
+              </li>
+                <li class="mb-2">
+                  <strong>One-Click Pipeline:</strong> Architected using Terragrunt, Terraform, Jenkins, and ArgoCD for complete 
+                  infrastructure and application deployment automation.
+                  </li>
+                <li class="mb-2">
+                  <strong>Helm Chart Centralization:</strong> Implemented two-repository strategy resolving deployment inconsistencies, 
+                  achieving 98% improvement in refresh times and 86% improvement in sync speed.
+                  </li>
+                </ul>
+          </div>
+
+          <div class="resume-item">
+            <h4>Member of Technical Staff</h4>
+              <h5 class="text-primary">September 2021 - February 2022</h5>
+              <p class="mb-3"><em>VMware Software India Pvt. Ltd.</em></p>
+              <ul class="list-unstyled">
+                <li>
+                  <strong>Infrastructure as Code:</strong> Implemented IaC to automate integration testing of SaaS platform 
+                  across different cloud-provided Kubernetes services using Crossplane.
+              </li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <h4>Product Development Associate</h4>
+              <h5 class="text-primary">September 2019 - September 2021</h5>
+              <p class="mb-3"><em>Human Experience (HUX), Deloitte USI</em></p>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <strong>GitOps Implementation:</strong> Architected deployment system using git operations, 
+                  making deployment as simple as git commit with self-healing Kubernetes resources.
+              </li>
+                <li class="mb-2">
+                  <strong>CI/CD Automation:</strong> Streamlined microservices journey from git to production servers, 
+                  containerizing Python, Node.js, and .NET applications with Kubernetes orchestration.
+                  </li>
+                <li class="mb-2">
+                  <strong>Data Pipeline Development:</strong> Built data pipelines using PySpark, Luigi framework, 
+                  SQLAlchemy ORM, and Flask for generating user behavior insights.
+                  </li>
+                <li class="mb-2">
+                  <strong>Container Orchestration:</strong> Deployed and managed microservices on Amazon EKS with 
+                  private Docker registry using Ansible for orchestration.
+                  </li>
+                </ul>
+          </div>
         </div>
       </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                  class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external"
-                  class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </section><!-- End Portfolio Section -->
+    </div>
+  </section>
+
+  <!-- ======= Certifications Section ======= -->
+  <section id="certification" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Certifications</h2>
+        <p>Professional certifications and achievements</p>
+      </div>
+
+      <div class="certificate-grid">
+        <div class="certificate-item">
+          <a href="https://www.credly.com/badges/82402b14-36df-4b74-8b0c-85dd83b19729" target="_blank" class="text-decoration-none">
+            <img src="assets/img/certificate/ckad.png" alt="Certified Kubernetes Application Developer" class="mb-3">
+            <h4 class="text-white">Certified Kubernetes Application Developer</h4>
+            <p class="text-muted">Cloud Native Computing Foundation</p>
+              </a>
+            </div>
+        
+        <div class="certificate-item">
+          <img src="assets/img/certificate/argocd_fundamental.png" alt="ArgoCD Fundamentals" class="mb-3">
+          <h4 class="text-white">ArgoCD Fundamentals</h4>
+          <p class="text-muted">GitOps Certification</p>
+      </div>
+
+        <div class="certificate-item">
+          <img src="assets/img/certificate/argocd_scale.png" alt="ArgoCD at Scale" class="mb-3">
+          <h4 class="text-white">ArgoCD at Scale</h4>
+          <p class="text-muted">Advanced GitOps Certification</p>
+        </div>
+      </div>
+              </div>
+  </section>
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
     <div class="container">
-
       <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
+        <h2>Get In Touch</h2>
+        <p>Let's discuss your next project</p>
       </div>
 
-      <div class="row mt-2">
-
-        <!-- <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Sector 62, Noida, UP, India</p>
-          </div>
-        </div> -->
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
+      <div class="contact-grid">
+        <div class="contact-item">
             <i class="bx bx-share-alt"></i>
             <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://twitter.com/ayushsoni_7" class="twitter"><i class="bi bi-twitter"></i></a>
-              <!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a> -->
-              <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" class="linkedin">
-                <i class="bi bi-linkedin"></i>
-              </a>
-            </div>
+          <div class="social-links mt-3">
+            <a href="https://twitter.com/ayushsoni_7" class="twitter" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/ayush-soni-811b91137/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/soni-ayush" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
           </div>
         </div>
 
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
+        <div class="contact-item">
             <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>ayushsoni47.as@gmail.com</p>
+          <h3>Email</h3>
+          <p class="mt-2">ayushsoni47.as@gmail.com</p>
           </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
+
+        <div class="contact-item">
             <i class="bx bx-phone-call"></i>
-            <h3>Call Me</h3>
-            <p>+91 99075-68686</p>
+          <h3>Phone</h3>
+          <p class="mt-2">+91 99075-68686</p>
           </div>
+
+        <div class="contact-item">
+          <i class="bx bx-map"></i>
+          <h3>Location</h3>
+          <p class="mt-2">India</p>
         </div>
       </div>
 
-      <form onsubmit="return postToGoogle(event);" method="post" role="form" class="php-email-form mt-4">
+      <form onsubmit="return postToGoogle(event);" method="post" role="form" class="php-email-form">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -889,18 +1038,19 @@
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" id="message" required></textarea>
+          <textarea class="form-control" name="message" rows="5" placeholder="Your Message" id="message" required></textarea>
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
+        <div class="text-center">
+          <button type="submit">Send Message</button>
+        </div>
       </form>
-
     </div>
-  </section><!-- End Contact Section -->
+  </section>
 
   <!-- Vendor JS Files -->
   <script src="assets/js/jquery-2.1.3.min.js"></script>
@@ -915,6 +1065,68 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <script>
+    // Add smooth scrolling and modern interactions
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
 
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards and sections
+      document.querySelectorAll('.card-modern, .skill-category, .stat-card, .contact-item, .certificate-item').forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // Contact form submission (placeholder - replace with actual implementation)
+    function postToGoogle(event) {
+      event.preventDefault();
+      
+      // Show loading state
+      document.querySelector('.loading').style.display = 'block';
+      document.querySelector('.error-message').style.display = 'none';
+      document.querySelector('.sent-message').style.display = 'none';
+
+      // Simulate form submission (replace with actual implementation)
+      setTimeout(() => {
+        document.querySelector('.loading').style.display = 'none';
+        document.querySelector('.sent-message').style.display = 'block';
+        
+        // Reset form
+        event.target.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          document.querySelector('.sent-message').style.display = 'none';
+        }, 5000);
+      }, 1000);
+
+      return false;
+    }
+  </script>
+</body>
 </html>
