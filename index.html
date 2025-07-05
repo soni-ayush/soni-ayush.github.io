@@ -92,6 +92,399 @@
       transform: translateY(-2px);
     }
 
+    /* Revolutionary Professional Navigation */
+    #navbar {
+      position: relative;
+    }
+
+    .navbar {
+      padding: 0;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .navbar ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 0;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      padding: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar ul::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 212, 170, 0.1), rgba(255, 107, 107, 0.1));
+      opacity: 0;
+      transition: all 0.3s ease;
+      border-radius: 50px;
+    }
+
+    .navbar:hover ul::before {
+      opacity: 1;
+    }
+
+    .navbar li {
+      position: relative;
+      margin: 0;
+    }
+
+    .navbar a,
+    .navbar a:focus {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      border-radius: 25px;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    /* Remove any existing underlines */
+    .navbar a::before,
+    .navbar a::after {
+      display: none !important;
+    }
+
+    .navbar a:hover {
+      color: #ffffff;
+      transform: translateY(-1px);
+      text-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+    }
+
+    /* Active state with sliding background */
+    .navbar .active {
+      color: #ffffff;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary-color), #35e888);
+      box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .navbar .active::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--primary-color), #35e888, var(--accent-color));
+      border-radius: 27px;
+      z-index: -1;
+      opacity: 0.3;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+      }
+      to {
+        box-shadow: 0 0 30px rgba(0, 212, 170, 0.6);
+      }
+    }
+
+    /* Floating indicator */
+    .navbar ul::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar:hover ul::after {
+      opacity: 1;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(-50%) scale(1.5);
+        opacity: 0.7;
+      }
+    }
+
+    /* Mobile Navigation - Futuristic Design */
+    .mobile-nav-toggle {
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      line-height: 0;
+      transition: all 0.3s ease;
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem;
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-nav-toggle:hover {
+      color: var(--primary-color);
+      transform: scale(1.1) rotate(90deg);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+    }
+
+    @media (max-width: 991px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .navbar ul {
+        display: none;
+      }
+
+      #header {
+        padding: 1rem 0;
+      }
+
+      #header h1 {
+        font-size: 2rem;
+      }
+
+      #header h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .navbar-mobile {
+      position: fixed;
+      overflow: hidden;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.98);
+      backdrop-filter: blur(30px);
+      transition: all 0.4s ease;
+      z-index: 9998;
+      margin-top: 0;
+    }
+
+    .navbar-mobile .mobile-nav-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      transform: rotate(45deg);
+    }
+
+    .navbar-mobile ul {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      gap: 1rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .navbar-mobile ul::before {
+      opacity: 0.3;
+    }
+
+    .navbar-mobile li {
+      padding: 0;
+    }
+
+    .navbar-mobile a,
+    .navbar-mobile a:focus {
+      font-size: 1.1rem;
+      padding: 1rem 1.5rem;
+      width: 100%;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-mobile a:hover {
+      background: rgba(0, 212, 170, 0.1);
+      border-color: var(--primary-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    .navbar-mobile .active {
+      background: linear-gradient(135deg, var(--primary-color), #35e888);
+      border-color: transparent;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Header State - Ultra Modern */
+    #header {
+      transition: all 0.4s ease;
+    }
+
+    #header.header-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(30px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 997;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    #header.header-top .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    #header.header-top h1 {
+      font-size: 1.6rem;
+      margin: 0;
+      background: linear-gradient(45deg, #ffffff, var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #header.header-top h2 {
+      display: none;
+    }
+
+    #header.header-top .social-links {
+      display: flex;
+      gap: 1rem;
+      opacity: 0.8;
+    }
+
+    #header.header-top .social-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    #header.header-top .social-links a:hover {
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    #header.header-top .navbar {
+      margin-top: 0;
+    }
+
+    #header.header-top .navbar ul {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.4rem;
+      gap: 0;
+    }
+
+    #header.header-top .navbar a {
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    /* Section visibility improvements */
+    section {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      top: 140px;
+      bottom: 100%;
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2;
+      visibility: hidden;
+    }
+
+    section.section-show {
+      top: 100px;
+      bottom: auto;
+      opacity: 1;
+      visibility: visible;
+      padding-bottom: 45px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      section {
+        top: 120px;
+      }
+
+      section.section-show {
+        top: 90px;
+      }
+
+      #header.header-top {
+        height: 70px;
+      }
+
+      #header.header-top h1 {
+        font-size: 1.3rem;
+      }
+
+      #header.header-top .social-links {
+        display: none;
+      }
+
+      .navbar ul {
+        padding: 0.4rem;
+      }
+
+      .navbar a {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar ul {
+        padding: 0.3rem;
+      }
+
+      .navbar a {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+      }
+    }
+
     /* Section improvements */
     .section-title h2 {
       font-size: 2.5rem;
@@ -1059,23 +1452,110 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Add smooth scrolling and modern interactions
+    // Enhanced navigation functionality
     document.addEventListener('DOMContentLoaded', function() {
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      // Get navigation elements
+      const navbar = document.getElementById('navbar');
+      const navLinks = document.querySelectorAll('#navbar .nav-link');
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const header = document.getElementById('header');
+      const sections = document.querySelectorAll('section');
+
+      // Enhanced smooth scrolling for navigation links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+          
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            // Update active states
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Close mobile menu if open
+            if (navbar.classList.contains('navbar-mobile')) {
+              navbar.classList.remove('navbar-mobile');
+              mobileNavToggle.classList.remove('bi-x');
+              mobileNavToggle.classList.add('bi-list');
+            }
+            
+            // Handle header state and section visibility
+            if (targetId === '#header') {
+              // Show home section
+              header.classList.remove('header-top');
+              sections.forEach(section => section.classList.remove('section-show'));
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              // Show specific section
+              if (!header.classList.contains('header-top')) {
+                header.classList.add('header-top');
+                setTimeout(() => {
+                  sections.forEach(section => section.classList.remove('section-show'));
+                  targetSection.classList.add('section-show');
+                }, 350);
+              } else {
+                sections.forEach(section => section.classList.remove('section-show'));
+                targetSection.classList.add('section-show');
+              }
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
           }
         });
       });
 
-      // Add animation on scroll
+      // Mobile navigation toggle
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function() {
+          navbar.classList.toggle('navbar-mobile');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+      }
+
+      // Handle initial page load with hash
+      window.addEventListener('load', function() {
+        const hash = window.location.hash;
+        if (hash) {
+          const targetSection = document.querySelector(hash);
+          const targetNavLink = document.querySelector(`#navbar .nav-link[href="${hash}"]`);
+          
+          if (targetSection && targetNavLink) {
+            // Update active state
+            navLinks.forEach(link => link.classList.remove('active'));
+            targetNavLink.classList.add('active');
+            
+            // Show section
+            if (hash !== '#header') {
+              header.classList.add('header-top');
+              setTimeout(() => {
+                sections.forEach(section => section.classList.remove('section-show'));
+                targetSection.classList.add('section-show');
+              }, 350);
+            }
+          }
+        }
+      });
+
+      // Smooth scrolling for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          // Only handle non-navigation links here
+          if (!this.classList.contains('nav-link')) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
+
+      // Add animation on scroll for elements
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -1093,9 +1573,29 @@
       document.querySelectorAll('.card-modern, .skill-category, .stat-card, .contact-item, .certificate-item').forEach(el => {
         observer.observe(el);
       });
+
+      // Enhanced keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navbar.classList.contains('navbar-mobile')) {
+          navbar.classList.remove('navbar-mobile');
+          mobileNavToggle.classList.remove('bi-x');
+          mobileNavToggle.classList.add('bi-list');
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (navbar.classList.contains('navbar-mobile') && 
+            !navbar.contains(e.target) && 
+            !mobileNavToggle.contains(e.target)) {
+          navbar.classList.remove('navbar-mobile');
+          mobileNavToggle.classList.remove('bi-x');
+          mobileNavToggle.classList.add('bi-list');
+        }
+      });
     });
 
-    // Contact form submission (placeholder - replace with actual implementation)
+    // Contact form submission
     function postToGoogle(event) {
       event.preventDefault();
       
