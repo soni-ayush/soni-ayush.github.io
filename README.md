@@ -36,28 +36,6 @@ I architect **bulletproof infrastructure** that scales from startup to enterpris
 
 ---
 
-## 🏆 **Career Highlights**
-
-### **🥇 Leading by Example Award - Innovaccer**
-**ArgoCD Centralization Initiative**
-- Achieved **98% improvement** in refresh speed
-- Delivered **86% improvement** in sync speed
-- Reduced blast radius through intelligent app localization
-
-### **🥇 Leading by Example Award - Innovaccer**
-**One-Click Pipeline Architecture**
-- **60% effort reduction** in infrastructure provisioning
-- **2.5x faster** infrastructure creation
-- **100% reliability** with automated multi-account management
-
-### **🥇 Outstanding Award - Deloitte USI**
-**GitOps Architecture Implementation**
-- Deployed **all legacy applications** using GitOps principles
-- Enabled **seamless deployment workflows**
-- Revolutionized infrastructure automation practices
-
----
-
 ## 🛠️ **Technical Arsenal**
 
 ### **☁️ Cloud & Infrastructure**
@@ -77,25 +55,6 @@ I architect **bulletproof infrastructure** that scales from startup to enterpris
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-
----
-
-## 🚀 **Current Mission**
-
-**Site Reliability Engineer 2** @ **Innovaccer** *(Feb 2022 - Present)*
-
-### **🎯 Key Achievements**
-- **Multi-Tenant Mastery**: Architected infrastructure serving 50+ clients with perfect isolation
-- **Cost Optimization Wizard**: Saved $485K through intelligent resource consolidation
-- **Kubernetes Orchestrator**: Managing 200+ clusters across multiple environments
-- **Security Champion**: Implemented zero-trust architecture with encrypted multi-cluster networking
-- **Innovation Driver**: Built custom Python operators for automated secret management
-
-### **🔧 Technical Wins**
-- **Cilium CNI Deployment**: Replaced kube-proxy across 200+ clusters for faster service discovery
-- **Secure TCP Gateway**: Designed multi-tenant gateway saving ~$21K/year
-- **One-Click Pipeline**: Automated complete infrastructure and application deployment
-- **Helm Chart Centralization**: Solved deployment inconsistencies with 98% performance improvement
 
 ---
 
@@ -175,4 +134,4 @@ I'm always excited to discuss:
 
 *"Infrastructure is not just about servers and code—it's about enabling dreams to scale"*
 
-</div> 
+</div>
