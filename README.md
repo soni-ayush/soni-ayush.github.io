@@ -124,7 +124,7 @@ I'm always excited to discuss:
 - **Technical Leadership** and team building
 
 📧 **ayushsoni47.as@gmail.com**  
-📱 **+91 99075-68686**
+📱 **+91-9907568686**
 
 ---
 
