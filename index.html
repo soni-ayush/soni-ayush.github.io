@@ -12,13 +12,97 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-    }
+        }
 
-    body {
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: white;
+        /* Theme Variables */
+        :root {
+            /* Dark Theme (Default) */
+            --bg-primary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --bg-secondary: rgba(0, 0, 0, 0.3);
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --bg-nav: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+            --text-primary: white;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --text-accent: #00d4aa;
+            --border-primary: rgba(255, 255, 255, 0.1);
+            --border-accent: rgba(0, 212, 170, 0.2);
+            --border-divider: #374151;
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-placeholder: #9ca3af;
+            --footer-bg: #0a0a0a;
+            --social-bg: rgba(0, 212, 170, 0.2);
+        }
+
+        [data-theme="light"] {
+            /* Light Theme */
+            --bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.8);
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card-hover: rgba(255, 255, 255, 1);
+            --bg-nav: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            --text-primary: #1f2937;
+            --text-secondary: #374151;
+            --text-muted: #6b7280;
+            --text-accent: #00a085;
+            --border-primary: rgba(0, 0, 0, 0.1);
+            --border-accent: rgba(0, 160, 133, 0.3);
+            --border-divider: #e5e7eb;
+            --input-bg: rgba(255, 255, 255, 0.8);
+            --input-border: rgba(0, 0, 0, 0.1);
+            --input-placeholder: #6b7280;
+            --footer-bg: #f8fafc;
+            --social-bg: rgba(0, 160, 133, 0.1);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--text-accent);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--text-accent);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="light"] .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        [data-theme="light"] .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
         
         .container {
@@ -32,16 +116,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+            background: var(--bg-nav);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-accent);
             z-index: 50;
         }
         
         .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             height: 4rem;
             max-width: 1280px;
             margin: 0 auto;
@@ -51,7 +135,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #00d4aa;
+            color: var(--text-accent);
         }
         
         .nav-links {
@@ -61,7 +145,7 @@
         }
         
         .nav-links a {
-            color: #d1d5db;
+            color: var(--text-secondary);
             text-decoration: none;
             padding: 0.5rem 0.75rem;
             border-radius: 0.375rem;
@@ -71,7 +155,7 @@
         }
         
         .nav-links a:hover {
-            color: #00d4aa;
+            color: var(--text-accent);
         }
         
         .mobile-menu {
@@ -83,7 +167,7 @@
         .mobile-menu span {
             width: 25px;
             height: 3px;
-            background: #d1d5db;
+            background: var(--text-secondary);
             margin: 3px 0;
             transition: 0.3s;
         }
@@ -106,11 +190,11 @@
             top: 4rem;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+            background: var(--bg-nav);
             backdrop-filter: blur(10px);
             flex-direction: column;
-      padding: 2rem;
-            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-accent);
         }
         
         /* Sections */
@@ -119,18 +203,19 @@
         }
         
         .section-title {
-      font-size: 3rem;
+            font-size: 3rem;
             font-weight: bold;
             margin-bottom: 4rem;
             text-align: center;
+            color: var(--text-primary);
         }
         
         .accent {
-            color: #00d4aa;
+            color: var(--text-accent);
         }
         
         .gradient-text {
-            background: linear-gradient(to right, white, #00d4aa);
+            background: linear-gradient(to right, var(--text-primary), var(--text-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -151,7 +236,7 @@
         }
         
         .hero-title {
-        font-size: 1.8rem;
+            font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
         }
@@ -160,12 +245,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
-        margin-bottom: 2rem;
-      }
+            margin-bottom: 2rem;
+        }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
             border-radius: 0.75rem;
             padding: 1.5rem;
             text-align: center;
@@ -173,18 +258,19 @@
         }
         
         .stat-card:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--bg-card-hover);
+            border-color: var(--text-accent);
         }
         
         .stat-number {
             font-size: 2rem;
             font-weight: bold;
-            color: #00d4aa;
+            color: var(--text-accent);
             margin-bottom: 0.5rem;
         }
         
         .stat-label {
-            color: #d1d5db;
+            color: var(--text-secondary);
             font-size: 0.875rem;
         }
         
@@ -199,7 +285,7 @@
             width: 16rem;
             height: 16rem;
             border-radius: 50%;
-            background: linear-gradient(to right, #00d4aa, #3b82f6);
+            background: linear-gradient(to right, var(--text-accent), #3b82f6);
             padding: 0.25rem;
         }
         
@@ -208,66 +294,92 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-      }
+        }
 
-      .social-links {
+        .social-links {
             display: flex;
-        gap: 1rem;
+            gap: 1rem;
         }
         
         .social-btn {
             width: 2.5rem;
             height: 2.5rem;
-            border: 1px solid #00d4aa;
+            border: 1px solid var(--text-accent);
             background: transparent;
-            color: #00d4aa;
+            color: var(--text-accent);
             border-radius: 0.375rem;
-      display: flex;
-      align-items: center;
+            display: flex;
+            align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s;
         }
         
         .social-btn:hover {
-            background: #00d4aa;
+            background: var(--text-accent);
+            color: var(--text-primary);
+        }
+
+        /* Light theme specific improvements */
+        [data-theme="light"] .social-btn:hover {
             color: white;
+        }
+
+        [data-theme="light"] .btn:hover {
+            filter: brightness(0.9);
+        }
+
+        [data-theme="light"] .btn-outline:hover {
+            color: white;
+        }
+
+        [data-theme="light"] .badge {
+            color: white;
+        }
+
+        [data-theme="light"] .card {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="light"] .card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
         /* Cards */
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
             border-radius: 0.75rem;
             padding: 2rem;
             transition: all 0.3s;
         }
         
         .card:hover {
-            border-color: #00d4aa;
-            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-accent);
+            background: var(--bg-card-hover);
         }
         
         .card-title {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
         
         .badge {
-            background: #00d4aa;
-            color: white;
+            background: var(--text-accent);
+            color: var(--text-primary);
             padding: 0.25rem 0.75rem;
             border-radius: 0.375rem;
             font-size: 0.75rem;
-      font-weight: 600;
+            font-weight: 600;
             display: inline-block;
             margin-bottom: 1rem;
         }
         
         /* About Section */
         .about {
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--bg-secondary);
         }
         
         .about-grid {
@@ -285,13 +397,13 @@
         }
         
         .contact-item {
-      display: flex;
-      align-items: center;
+            display: flex;
+            align-items: center;
             gap: 0.75rem;
         }
         
         .contact-icon {
-            color: #00d4aa;
+            color: var(--text-accent);
             width: 1.25rem;
             height: 1.25rem;
         }
@@ -300,11 +412,11 @@
         .testimonials {
             margin-bottom: 4rem;
             overflow: hidden;
-      position: relative;
+            position: relative;
         }
         
         .testimonial-container {
-      position: relative;
+            position: relative;
             max-width: 100%;
             margin: 0 auto;
         }
@@ -316,8 +428,8 @@
         }
         
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
             border-radius: 0.75rem;
             padding: 1.5rem;
             width: 350px;
@@ -329,8 +441,8 @@
         }
         
         .testimonial-card:hover {
-            border-color: #00d4aa;
-            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--text-accent);
+            background: var(--bg-card-hover);
             transform: translateY(-5px);
         }
         
@@ -344,7 +456,7 @@
         }
         
         .quote-start, .quote-end {
-            color: #00d4aa;
+            color: var(--text-accent);
             font-size: 2.5rem;
             line-height: 1;
         }
@@ -354,16 +466,16 @@
         }
         
         .testimonial-text {
-            color: #d1d5db;
+            color: var(--text-secondary);
             margin: 1rem 0;
             flex-grow: 1;
             font-style: italic;
         }
         
         .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-top: auto;
         }
         
@@ -371,19 +483,19 @@
             width: 3rem;
             height: 3rem;
             border-radius: 50%;
-            border: 2px solid #00d4aa;
+            border: 2px solid var(--text-accent);
         }
         
         .author-name {
-            color: white;
-      font-weight: 600;
-    }
+            color: var(--text-primary);
+            font-weight: 600;
+        }
 
         .author-position {
-            color: #9ca3af;
+            color: var(--text-muted);
             font-size: 0.875rem;
         }
-        
+
         /* Technical Expertise */
         .tech-grid {
             display: grid;
@@ -409,7 +521,7 @@
         
         .tech-name {
             font-size: 0.875rem;
-            color: #d1d5db;
+            color: var(--text-secondary);
         }
         
         /* Areas of Interest */
@@ -424,27 +536,28 @@
         }
         
         .interest-icon {
-            color: #00d4aa;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+            color: var(--text-accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
         .interest-title {
             font-size: 1.125rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
         
         .interest-desc {
-            color: #9ca3af;
+            color: var(--text-muted);
             font-size: 0.875rem;
         }
         
         /* Experience Section */
         .experience-grid {
-      display: grid;
+            display: grid;
             grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+            gap: 2rem;
         }
         
         .experience-left {
@@ -458,7 +571,7 @@
         }
         
         .achievement-title {
-            color: #00d4aa;
+            color: var(--text-accent);
             font-weight: bold;
             font-size: 1.125rem;
             margin-bottom: 0.5rem;
@@ -471,7 +584,7 @@
         }
         
         .achievement-desc {
-            color: #d1d5db;
+            color: var(--text-secondary);
             font-size: 0.875rem;
             line-height: 1.6;
         }
@@ -479,7 +592,7 @@
         .experience-item {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid var(--border-divider);
         }
         
         .experience-item:last-child {
@@ -489,16 +602,16 @@
         }
         
         .experience-desc {
-            color: #d1d5db;
+            color: var(--text-secondary);
             font-size: 0.875rem;
-      margin-bottom: 1rem;
-    }
+            margin-bottom: 1rem;
+        }
 
         /* Certifications */
         .cert-grid {
-      display: grid;
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+            gap: 2rem;
         }
         
         .cert-icon {
@@ -515,58 +628,60 @@
             width: 6rem;
             height: 6rem;
             margin: 0 auto 1.5rem;
-            background: white;
+            background: var(--text-primary);
             border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
+            display: flex;
+            align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #1f2937;
+            color: var(--bg-primary);
         }
         
         .cert-title {
             font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
         
         .cert-org {
-            color: #9ca3af;
+            color: var(--text-muted);
         }
         
         /* Blog Section */
         .blog-grid {
-      display: grid;
+            display: grid;
             grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+            gap: 2rem;
         }
         
         .blog-icon {
-            color: #00d4aa;
+            color: var(--text-accent);
             font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
+            margin-bottom: 1.5rem;
+        }
 
         .blog-title {
-      font-size: 1.5rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
         
         .blog-desc {
-            color: #d1d5db;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
         
         .blog-footer {
-      display: flex;
+            display: flex;
             justify-content: space-between;
-      align-items: center;
+            align-items: center;
         }
         
         .btn {
-            background: #00d4aa;
-            color: white;
+            background: var(--text-accent);
+            color: var(--text-primary);
             padding: 0.5rem 1rem;
             border: none;
             border-radius: 0.375rem;
@@ -574,60 +689,62 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
         
         .btn:hover {
-            background: #00b894;
+            background: var(--text-accent);
+            filter: brightness(0.9);
         }
         
         .btn-outline {
             background: transparent;
-            border: 1px solid #00d4aa;
-            color: #00d4aa;
+            border: 1px solid var(--text-accent);
+            color: var(--text-accent);
         }
         
         .btn-outline:hover {
-            background: #00d4aa;
-            color: white;
+            background: var(--text-accent);
+            color: var(--text-primary);
         }
         
         /* Contact Section */
         .contact {
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--bg-secondary);
         }
         
-    .contact-grid {
-      display: grid;
+        .contact-grid {
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+            gap: 2rem;
             margin-bottom: 4rem;
         }
         
         .contact-card {
-      text-align: center;
+            text-align: center;
         }
         
         .contact-card-icon {
             width: 4rem;
             height: 4rem;
             margin: 0 auto 1rem;
-            background: rgba(0, 212, 170, 0.2);
-      border-radius: 50%;
+            background: var(--social-bg);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #00d4aa;
+            color: var(--text-accent);
         }
         
         .contact-card-title {
             font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
         
         .contact-card-text {
-            color: #d1d5db;
+            color: var(--text-secondary);
         }
         
         /* Form */
@@ -645,21 +762,21 @@
         
         .form-input {
             width: 100%;
-      padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
             border-radius: 0.5rem;
-            color: white;
-      font-size: 1rem;
+            color: var(--text-primary);
+            font-size: 1rem;
         }
         
         .form-input::placeholder {
-            color: #9ca3af;
+            color: var(--input-placeholder);
         }
         
         .form-input:focus {
-      outline: none;
-            border-color: #00d4aa;
+            outline: none;
+            border-color: var(--text-accent);
         }
         
         .form-textarea {
@@ -678,14 +795,14 @@
         
         /* Footer */
         footer {
-            background: #0a0a0a;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border-primary);
             padding: 2rem 0;
-      text-align: center;
+            text-align: center;
         }
         
         .footer-text {
-            color: #9ca3af;
+            color: var(--text-muted);
         }
         
         /* Responsive */
@@ -709,7 +826,7 @@
             }
         }
         
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
@@ -763,7 +880,14 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-    }
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
   </style>
 </head>
 <body>
@@ -778,12 +902,23 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
-        </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-      </div>
+            </ul>
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </button>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -795,10 +930,10 @@
                 <div class="profile-section">
                     <div class="profile-image">
                         <img src="assets/img/me.jpg" alt="Ayush Soni" />
-                </div>
+                    </div>
                     
                     <!-- Social Handles -->
-      <div class="social-links">
+                    <div class="social-links">
                         <a href="https://twitter.com/ayushsoni_7" target="_blank" class="social-btn">
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
@@ -813,9 +948,9 @@
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
-                </a>
-      </div>
-    </div>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Right Panel - Title and Stats -->
                 <div>
@@ -830,19 +965,19 @@
                         <div class="stat-card">
                             <div class="stat-number">6+</div>
                             <div class="stat-label">Years Experience</div>
-          </div>
+                        </div>
                         <div class="stat-card">
                             <div class="stat-number">200+</div>
                             <div class="stat-label">Kubernetes Clusters</div>
-        </div>
+                        </div>
                         <div class="stat-card">
                             <div class="stat-number">$485K</div>
                             <div class="stat-label">Cost Savings Achieved</div>
-      </div>
+                        </div>
                         <div class="stat-card">
                             <div class="stat-number">50+</div>
                             <div class="stat-label">Clients Served</div>
-    </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -850,8 +985,8 @@
     </section>
 
     <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
+    <section id="about" class="about">
+        <div class="container">
             <h2 class="section-title">
                 ABOUT ME <span class="accent">——</span>
             </h2>
@@ -859,10 +994,10 @@
             <div class="about-grid">
                 <div class="card">
                     <h3 class="card-title accent">DevOps & Site Reliability Engineer</h3>
-                    <p style="color: #d1d5db; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
                         Lead DevOps Engineer with over 6 years of experience in product and consulting environments, specializing in DevOps, Site Reliability Engineering (SRE), and Cloud-Native Infrastructure. Proven track record of designing scalable, secure, and cost-efficient systems using AWS, Kubernetes, Terraform, and CI/CD pipelines.
                     </p>
-                    <p style="color: #d1d5db; margin-bottom: 2rem; line-height: 1.6;">
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
                         Adept at building GitOps workflows, automating deployments, and managing large-scale, multi-tenant architectures. A Certified Kubernetes Application Developer with extensive experience managing 80+ AWS accounts across commercial and government cloud environments. Known for delivering zero-downtime releases, optimizing incident response, and leading high-impact cross-functional initiatives.
                     </p>
                     
@@ -871,29 +1006,29 @@
                             <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
-                            <span style="color: #d1d5db;">+91 99075-68686</span>
-            </div>
+                            <span style="color: var(--text-secondary);">+91 99075-68686</span>
+                        </div>
                         <div class="contact-item">
                             <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
-                            <span style="color: #d1d5db;">ayushsoni47.as@gmail.com</span>
-            </div>
+                            <span style="color: var(--text-secondary);">ayushsoni47.as@gmail.com</span>
+                        </div>
                         <div class="contact-item">
                             <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
-                            <span style="color: #d1d5db;">India</span>
-          </div>
+                            <span style="color: var(--text-secondary);">India</span>
+                        </div>
                         <div class="contact-item">
-                            <span style="color: #00d4aa; font-weight: 600;">Degree:</span>
-                            <span style="color: #d1d5db;">B.Tech (IIT Indore)</span>
-          </div>
-        </div>
-      </div>
-      </div>
-        
+                            <span style="color: var(--text-accent); font-weight: 600;">Degree:</span>
+                            <span style="color: var(--text-secondary);">B.Tech (IIT Indore)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Testimonials Section -->
             <div class="testimonials">
                 <h3 class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">
@@ -1041,21 +1176,21 @@
                         <div class="tech-card">
                             <img src="./assets/img/skills/python.png" alt="Python" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Python</div>
-          </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/flask.png" alt="Flask" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Flask</div>
-        </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/java-script.png" alt="JavaScript" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">JavaScript</div>
-          </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/go.png" alt="Go" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Go</div>
-        </div>
-          </div>
-        </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card">
                     <h4 class="card-title accent" style="display: flex; align-items: center;">
@@ -1065,21 +1200,21 @@
                         <div class="tech-card">
                             <img src="./assets/img/skills/kubernetes.svg" alt="Kubernetes" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Kubernetes</div>
-            </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/aws.png" alt="AWS" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">AWS</div>
-          </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/terraform.png" alt="Terraform" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Terraform</div>
-        </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/docker.png" alt="Docker" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Docker</div>
-      </div>
-        </div>
-      </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card">
                     <h4 class="card-title accent" style="display: flex; align-items: center;">
@@ -1089,21 +1224,21 @@
                         <div class="tech-card">
                             <img src="./assets/img/skills/jenkins.png" alt="Jenkins" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Jenkins</div>
-            </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/argo.png" alt="ArgoCD" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">ArgoCD</div>
-                </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/helm.png" alt="Helm" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Helm</div>
-              </div>
+                        </div>
                         <div class="tech-card">
                             <img src="./assets/img/skills/ansible.png" alt="Ansible" style="width: 2.5rem; height: 2.5rem; margin-bottom: 0.5rem;">
                             <div class="tech-name">Ansible</div>
-            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
 
             <h3 class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">
@@ -1115,7 +1250,7 @@
                     <div class="interest-icon">⚙️</div>
                     <h4 class="interest-title">DevOps Engineering</h4>
                     <p class="interest-desc">Automating and optimizing development workflows</p>
-            </div>
+                </div>
                 <div class="card interest-card">
                     <div class="interest-icon">✅</div>
                     <h4 class="interest-title">Site Reliability</h4>
@@ -1125,14 +1260,14 @@
                     <div class="interest-icon">☁️</div>
                     <h4 class="interest-title">Cloud Architecture</h4>
                     <p class="interest-desc">Designing scalable cloud-native solutions</p>
-              </div>
+                </div>
                 <div class="card interest-card">
                     <div class="interest-icon">🔒</div>
                     <h4 class="interest-title">Security & Compliance</h4>
                     <p class="interest-desc">Implementing secure infrastructure practices</p>
-            </div>
-            </div>
                 </div>
+            </div>
+        </div>
     </section>
 
     <!-- Experience Section -->
@@ -1148,10 +1283,10 @@
                     <div class="card">
                         <h3 class="card-title">Professional Summary</h3>
                         <div class="badge">WHAT I DO</div>
-                        <p style="color: #d1d5db; margin-bottom: 1rem; line-height: 1.6;">
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
                             I am an experienced DevOps Engineer with 6+ years of expertise in cloud infrastructure, containerization, and automation. As a Certified Kubernetes Application Developer, I bring deep knowledge in managing containerized environments at scale.
                         </p>
-                        <p style="color: #d1d5db; margin-bottom: 1.5rem; line-height: 1.6;">
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
                             My expertise spans from architecting One-Click deployment pipelines to implementing GitOps architectures that have saved organizations hundreds of thousands in infrastructure costs while improving deployment reliability and speed.
                         </p>
                         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
@@ -1159,16 +1294,16 @@
                                 <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                 </svg>
-                                <span style="color: #d1d5db;">+91 99075-68686</span>
-            </div>
+                                <span style="color: var(--text-secondary);">+91 99075-68686</span>
+                            </div>
                             <div class="contact-item">
                                 <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
-                                <span style="color: #d1d5db;">ayushsoni47.as@gmail.com</span>
-                </div>
-              </div>
-            </div>
+                                <span style="color: var(--text-secondary);">ayushsoni47.as@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="card">
                         <h3 class="card-title">Key Achievements</h3>
@@ -1176,47 +1311,47 @@
                         <div class="achievement-item">
                             <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
                                 <span class="badge">Leading by Example Award</span>
-        </div>
+                            </div>
                             <div class="achievement-title">ARGOCD CENTRALIZATION INITIATIVE</div>
                             <div class="achievement-date">May 2023 - Innovaccer</div>
                             <p class="achievement-desc">
                                 Led the PHC ArgoCD centralization rollout, achieving 98% improvement in refresh speed and 86% improvement in sync speed, while reducing blast radius through app localization and GitOps best practices.
                             </p>
-      </div>
+                        </div>
 
                         <div class="achievement-item">
                             <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
                                 <span class="badge">Leading by Example Award</span>
-      </div>
+                            </div>
                             <div class="achievement-title">ONE-CLICK PIPELINE ARCHITECTURE</div>
                             <div class="achievement-date">May 2023 - Innovaccer</div>
                             <p class="achievement-desc">
                                 Designed and implemented a One-Click pipeline achieving 60% effort reduction, 2.5x faster infrastructure creation, and 100% reliability with automated multi-account management.
                             </p>
-    </div>
+                        </div>
 
                         <div class="achievement-item">
                             <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
                                 <span class="badge">Outstanding Award</span>
-      </div>
+                            </div>
                             <div class="achievement-title">GITOPS ARCHITECTURE IMPLEMENTATION</div>
                             <div class="achievement-date">April 2021 - Deloitte USI</div>
                             <p class="achievement-desc">
                                 Implemented architecture to deploy all legacy applications using GitOps principles, enabling seamless deployment workflows and infrastructure automation.
                             </p>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
                     <div class="card">
                         <h3 class="card-title">Education</h3>
                         <div class="badge">BACHELOR OF TECHNOLOGY</div>
                         <div class="achievement-date">2015 - 2019</div>
-                        <div style="color: #9ca3af; font-style: italic; margin-bottom: 0.75rem;">Indian Institute of Technology (IIT) Indore</div>
-                        <p style="color: #d1d5db;">
+                        <div style="color: var(--text-muted); font-style: italic; margin-bottom: 0.75rem;">Indian Institute of Technology (IIT) Indore</div>
+                        <p style="color: var(--text-secondary);">
                             Specialization in Electrical Engineering with 8.6 GPA. Minor degree in Humanities and Social Sciences.
-            </p>
-          </div>
-          </div>
+                        </p>
+                    </div>
+                </div>
 
                 <!-- Right Column -->
                 <div class="card">
@@ -1225,31 +1360,31 @@
                     <div class="experience-item">
                         <div class="badge">SITE RELIABILITY ENGINEER 2</div>
                         <div class="achievement-date">February 2022 - Present</div>
-                        <div style="color: #9ca3af; font-style: italic; margin-bottom: 1rem;">Innovaccer</div>
+                        <div style="color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">Innovaccer</div>
                         
                         <div class="experience-desc">
                             <strong>Multi-Tenant Architecture:</strong> Implemented architecture consolidating 50+ clients onto shared AWS resources, enforcing tenant isolation via RBAC and network policies, saving $485K in infrastructure costs.
-          </div>
+                        </div>
 
                         <div class="experience-desc">
                             <strong>AWS Multi-Account Management:</strong> Architected and managed 80+ AWS accounts across commercial and government cloud environments, implementing centralized governance, security policies, and cost optimization strategies with specialized compliance for GovCloud requirements.
-          </div>
+                        </div>
 
                         <div class="experience-desc">
                             <strong>Secure TCP Gateway:</strong> Designed multi-tenant TCP gateway using APISIX and SNI-based routing, enabling encrypted access over single port, saving ~$21K/year.
-          </div>
+                        </div>
 
                         <div class="experience-desc">
                             <strong>Cilium CNI Deployment:</strong> Deployed across 200+ Kubernetes clusters, replaced kube-proxy for faster service discovery, enabled ClusterMesh for multi-cluster networking with L7 policies and node-to-node encryption.
-          </div>
+                        </div>
                         
                         <div class="experience-desc">
                             <strong>Kubernetes Operator:</strong> Developed custom Python operator for automated secret management, integrated with external vault systems for enhanced security and compliance.
-          </div>
+                        </div>
                         
                         <div class="experience-desc">
                             <strong>One-Click Pipeline:</strong> Architected using Terragrunt, Terraform, Jenkins, and ArgoCD for complete infrastructure and application deployment automation across multiple AWS environments.
-        </div>
+                        </div>
 
                         <div class="experience-desc">
                             <strong>Helm Chart Centralization:</strong> Implemented two-repository strategy resolving deployment inconsistencies, achieving 98% improvement in refresh times and 86% improvement in sync speed.
@@ -1259,33 +1394,33 @@
                     <div class="experience-item">
                         <div class="badge">MEMBER OF TECHNICAL STAFF</div>
                         <div class="achievement-date">September 2021 - February 2022</div>
-                        <div style="color: #9ca3af; font-style: italic; margin-bottom: 1rem;">VMware Software India Pvt. Ltd.</div>
+                        <div style="color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">VMware Software India Pvt. Ltd.</div>
                         <div class="experience-desc">
                             <strong>Infrastructure as Code:</strong> Implemented IaC to automate integration testing of SaaS platform across different cloud-provided Kubernetes services using Crossplane.
                         </div>
-          </div>
+                    </div>
 
                     <div class="experience-item">
                         <div class="badge">PRODUCT DEVELOPMENT ASSOCIATE</div>
                         <div class="achievement-date">September 2019 - September 2021</div>
-                        <div style="color: #9ca3af; font-style: italic; margin-bottom: 1rem;">Human Experience (HUX), Deloitte USI</div>
+                        <div style="color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">Human Experience (HUX), Deloitte USI</div>
                         
                         <div class="experience-desc">
                             <strong>GitOps Implementation:</strong> Architected deployment system using git operations, making deployment as simple as git commit with self-healing Kubernetes resources.
-          </div>
+                        </div>
 
                         <div class="experience-desc">
                             <strong>CI/CD Automation:</strong> Streamlined microservices journey from git to production servers, containerizing Python, Node.js, and .NET applications with Kubernetes orchestration.
-          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Certifications Section -->
     <section id="certifications" class="about">
-    <div class="container">
+        <div class="container">
             <h2 class="section-title">
                 CERTIFICATIONS <span class="accent">——</span>
             </h2>
@@ -1296,27 +1431,27 @@
                         <img src="assets/img/certificate/ckad.png" alt="Certified Kubernetes Application Developer" style="width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block; border-radius: 0.5rem;">
                         <h3 class="cert-title">Certified Kubernetes Application Developer</h3>
                         <p class="cert-org">Cloud Native Computing Foundation</p>
-              </a>
-            </div>
-        
+                    </a>
+                </div>
+            
                 <div class="card cert-card">
                     <img src="assets/img/certificate/argocd_fundamental.png" alt="ArgoCD Fundamentals" style="width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block; border-radius: 0.5rem;">
                     <h3 class="cert-title">ArgoCD Fundamentals</h3>
                     <p class="cert-org">GitOps Certification</p>
-      </div>
+                </div>
 
                 <div class="card cert-card">
                     <img src="assets/img/certificate/argocd_scale.png" alt="ArgoCD at Scale" style="width: 6rem; height: 6rem; margin: 0 auto 1.5rem; display: block; border-radius: 0.5rem;">
                     <h3 class="cert-title">ArgoCD at Scale</h3>
                     <p class="cert-org">Advanced GitOps Certification</p>
+                </div>
+            </div>
         </div>
-      </div>
-              </div>
-  </section>
+    </section>
 
     <!-- Blog Section -->
     <section id="blog">
-    <div class="container">
+        <div class="container">
             <h2 class="section-title">
                 TECHNICAL BLOG POSTS <span class="accent">——</span>
             </h2>
@@ -1329,15 +1464,15 @@
                         A deep dive into implementing smart TCP routing solutions using APISIX gateway and TLS SNI for multi-tenant architectures. Learn how to eliminate port chaos and achieve elegant traffic management.
                     </p>
                     <div class="blog-footer">
-                        <span class="badge" style="background: #4b5563;">Medium</span>
+                        <span class="badge" style="background: var(--text-muted);">Medium</span>
                         <a href="https://medium.com/@ayushsoni47.as/%EF%B8%8E-from-port-chaos-to-port-harmony-smart-tcp-routing-with-apisix-and-tls-sni-909fad88712e" target="_blank" class="btn">
                             Read Article 
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
                         </a>
-          </div>
-        </div>
+                    </div>
+                </div>
 
                 <div class="card">
                     <div class="blog-icon" style="font-size: 3.75rem;">+</div>
@@ -1352,39 +1487,39 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
                         </a>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
+    <section id="contact" class="contact">
+        <div class="container">
             <h2 class="section-title">
                 GET IN TOUCH <span class="accent">——</span>
             </h2>
 
-      <div class="contact-grid">
+            <div class="contact-grid">
                 <div class="card contact-card">
                     <div class="contact-card-icon">
                         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
-          </div>
+                    </div>
                     <h3 class="contact-card-title">Email</h3>
                     <p class="contact-card-text">ayushsoni47.as@gmail.com</p>
-        </div>
+                </div>
 
                 <div class="card contact-card">
                     <div class="contact-card-icon">
                         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                         </svg>
-        </div>
+                    </div>
                     <h3 class="contact-card-title">Phone</h3>
                     <p class="contact-card-text">+91 99075-68686</p>
-      </div>
+                </div>
 
                 <div class="card contact-card">
                     <div class="contact-card-icon">
@@ -1392,29 +1527,29 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
-          </div>
+                    </div>
                     <h3 class="contact-card-title">Location</h3>
                     <p class="contact-card-text">India</p>
-          </div>
-        </div>
+                </div>
+            </div>
 
             <div class="card">
                 <form class="form">
                     <div class="form-row">
                         <input type="text" placeholder="Your Name" class="form-input">
                         <input type="email" placeholder="Your Email" class="form-input">
-        </div>
+                    </div>
                     <input type="text" placeholder="Subject" class="form-input">
                     <textarea rows="6" placeholder="Your Message" class="form-input form-textarea"></textarea>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-large">
                             SEND MESSAGE
                         </button>
-        </div>
-      </form>
+                    </div>
+                </form>
             </div>
-    </div>
-  </section>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1423,39 +1558,55 @@
         </div>
     </footer>
 
-  <script>
-        // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-          }
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Initialize theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
-      });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
         // Add fade-in animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
-          }
-        });
-      }, observerOptions);
+                }
+            });
+        }, observerOptions);
 
-      // Observe all cards and sections
+        // Observe all cards and sections
         document.querySelectorAll('.card, section').forEach(el => {
-        observer.observe(el);
-      });
+            observer.observe(el);
+        });
 
         // Mobile menu toggle (if needed)
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -1473,8 +1624,8 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
-      });
-    });
-  </script>
+            });
+        });
+    </script>
 </body>
 </html>
